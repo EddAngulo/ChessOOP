@@ -6,6 +6,7 @@ package core.chess.pieces;
 
 import core.chess.Chess;
 import core.chess.board.Position;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +26,9 @@ public class Piece {
 
     @Override
     public String toString() {
-        return "Piece(" + "color=" + color + ", chess=" + chess + ", position=" + position + ")";
+        String[] names = getClass().getName().split("\\.");
+        String className = names[names.length - 1];
+        return className + "(" + "color=" + color + ", chess=" + chess + ", position=" + position + ")";
     }
     
     public void setChess(Chess chess) {
@@ -42,6 +45,23 @@ public class Piece {
     
     public void move() {
         
+    }
+    
+    public static ArrayList<Piece> generatePieces() {
+        ArrayList<Piece> pieces = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            pieces.add(new King(i == 0));
+            pieces.add(new Queen(i == 0));
+            for (int j = 0; j < 2; j++) {
+                pieces.add(new Bishop(i == 0));
+                pieces.add(new Knight(i == 0));
+                pieces.add(new Rook(i == 0));
+            }
+            for (int j = 0; j < 8; j++) {
+                pieces.add(new Pawn(i == 0));
+            }
+        }
+        return pieces;
     }
     
 }

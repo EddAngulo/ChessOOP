@@ -29,6 +29,17 @@ public class Chess {
         this.player1.setChess(this);
         this.board.setChess(this); 
     }
+
+    public Chess(Player player1, Player player2, Board board) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.pieces = new ArrayList<>();
+        this.board = board;
+        
+        this.player1.setChess(this);
+        this.player2.setChess(this);
+        this.board.setChess(this);
+    }
     
     public void setPlayer2(Player player2) {
         if (this.player2 == null) {
@@ -37,10 +48,19 @@ public class Chess {
         }
     }
 
+    public ArrayList<Piece> getPieces() {
+        return pieces;
+    }
+    
     public void setPieces(ArrayList<Piece> pieces) {
-        this.pieces = pieces;
-        for (Piece piece : this.pieces) {
-            piece.setChess(this);
+        if (pieces.size() <= 32) {
+            for (Piece piece : this.pieces) {
+                piece.setChess(null);
+            }
+            this.pieces = pieces;
+            for (Piece piece : this.pieces) {
+                piece.setChess(this);
+            }
         }
     }
     
