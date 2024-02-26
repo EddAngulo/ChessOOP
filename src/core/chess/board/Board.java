@@ -22,6 +22,11 @@ public class Board {
         this.initializePositions();
     }
 
+    @Override
+    public String toString() {
+        return "Board(" + "chess=" + chess + ")";
+    }
+    
     public void setChess(Chess chess) {
         this.chess = chess;
     }

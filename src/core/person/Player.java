@@ -22,6 +22,11 @@ public class Player {
         this.chess = null;
     }
 
+    @Override
+    public String toString() {
+        return "Player(" + "name=" + name + ", id=" + id + ", chess=" + chess + ")";
+    }
+    
     public void setChess(Chess chess) {
         this.chess = chess;
     }

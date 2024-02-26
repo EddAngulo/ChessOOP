@@ -23,12 +23,21 @@ public class Piece {
         this.position = null;
     }
 
+    @Override
+    public String toString() {
+        return "Piece(" + "color=" + color + ", chess=" + chess + ", position=" + position + ")";
+    }
+    
     public void setChess(Chess chess) {
         this.chess = chess;
     }
 
     public void setPosition(Position position) {
+        if (this.position != null) {
+            this.position.setPiece(null);
+        }
         this.position = position;
+        this.position.setPiece(this);
     }
     
     public void move() {

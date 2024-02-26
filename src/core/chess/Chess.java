@@ -30,4 +30,18 @@ public class Chess {
         this.board.setChess(this); 
     }
     
+    public void setPlayer2(Player player2) {
+        if (this.player2 == null) {
+            this.player2 = player2;
+            this.player2.setChess(this);
+        }
+    }
+
+    public void setPieces(ArrayList<Piece> pieces) {
+        this.pieces = pieces;
+        for (Piece piece : this.pieces) {
+            piece.setChess(this);
+        }
+    }
+    
 }

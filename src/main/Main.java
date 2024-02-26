@@ -4,7 +4,9 @@
  */
 package main;
 
+import core.chess.Chess;
 import core.chess.board.Board;
+import core.person.Player;
 
 /**
  *
@@ -13,8 +15,18 @@ import core.chess.board.Board;
 public class Main {
     
     public static void main(String[] args) {
+        Player player1 = new Player("Andres", 29);
+        Player player2 = new Player("Juan", 26);
+        
         Board board = new Board();
-        board.verify();
+        
+        Chess chess = new Chess(player1, board);
+        chess.setPlayer2(player2);
+        
+        System.out.println(chess);
+        System.out.println(player1);
+        System.out.println(player2);
+        System.out.println(board);
     }
     
 }
