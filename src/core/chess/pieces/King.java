@@ -14,4 +14,9 @@ public class King extends Piece {
         super(color);
     }
     
+    @Override
+    public void move() {
+        
+    }
+    
 }

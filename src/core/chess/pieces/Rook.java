@@ -14,4 +14,9 @@ public class Rook extends Piece {
         super(color);
     }
     
+    @Override
+    public void move() {
+        
+    }
+    
 }

@@ -14,4 +14,9 @@ public class Bishop extends Piece {
         super(color);
     }
     
+    @Override
+    public void move() {
+        
+    }
+    
 }

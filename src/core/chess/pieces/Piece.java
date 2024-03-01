@@ -6,12 +6,13 @@ package core.chess.pieces;
 
 import core.chess.Chess;
 import core.chess.board.Position;
+import java.util.ArrayList;
 
 /**
  *
  * @author edangulo
  */
-public class Piece {
+public abstract class Piece {
     
     protected boolean color;
     protected Chess chess;
@@ -23,6 +24,13 @@ public class Piece {
         this.position = null;
     }
 
+    @Override
+    public String toString() {
+        String[] classRoute = getClass().getName().split("\\.");
+        String className = classRoute[classRoute.length - 1];
+        return className + "(" + "color=" + (color ? "White" : "Black") + ", chess=" + chess + ")";
+    }
+    
     public void setChess(Chess chess) {
         this.chess = chess;
     }
@@ -31,8 +39,23 @@ public class Piece {
         this.position = position;
     }
     
-    public void move() {
-        
+    public abstract void move();
+    
+    public static ArrayList<Piece> generatePieces() {
+        ArrayList<Piece> pieces = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            pieces.add(new King(i == 0));
+            pieces.add(new Queen(i == 0));
+            for (int j = 0; j < 2; j++) {
+                pieces.add(new Bishop(i == 0));
+                pieces.add(new Knight(i == 0));
+                pieces.add(new Rook(i == 0));
+            }
+            for (int j = 0; j < 8; j++) {
+                pieces.add(new Pawn(i == 0));
+            }
+        }
+        return pieces;
     }
     
 }

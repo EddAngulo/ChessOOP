@@ -14,4 +14,9 @@ public class Queen extends Piece {
         super(color);
     }
     
+    @Override
+    public void move() {
+        
+    }
+    
 }

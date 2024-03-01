@@ -14,4 +14,9 @@ public class Knight extends Piece {
         super(color);
     }
     
+    @Override
+    public void move() {
+        
+    }
+    
 }
