@@ -13,5 +13,10 @@ public class Knight extends Piece {
     public Knight(boolean color) {
         super(color);
     }
+
+    @Override
+    public void move() {
+        System.out.println("The " + (this.color ? "White" : "Black") + " Knight moves");
+    }
     
 }

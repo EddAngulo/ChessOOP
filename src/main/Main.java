@@ -6,7 +6,10 @@ package main;
 
 import core.chess.Chess;
 import core.chess.board.Board;
+import core.chess.pieces.Bishop;
+import core.chess.pieces.Pawn;
 import core.chess.pieces.Piece;
+import core.chess.pieces.behaviors.Castlingable;
 import core.person.Player;
 
 /**
@@ -39,6 +42,18 @@ public class Main {
         chess1.setPieces(Piece.generatePieces());
         for (Piece piece : chess1.getPieces()) {
             System.out.println(piece);
+        }
+        
+        System.out.println("-----------------------------------------------");
+        
+        for (Piece piece : chess1.getPieces()) {
+            piece.move();
+            if (piece instanceof Pawn) {
+                ((Pawn) piece).transform();
+            }
+            if (piece instanceof Castlingable) {
+                ((Castlingable) piece).castling();
+            }
         }
         
         System.out.println("-----------------------------------------------");

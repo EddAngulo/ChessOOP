@@ -13,5 +13,10 @@ public class Queen extends Piece {
     public Queen(boolean color) {
         super(color);
     }
+
+    @Override
+    public void move() {
+        System.out.println("The " + (this.color ? "White" : "Black") + " Queen moves");
+    }
     
 }

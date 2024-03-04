@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author edangulo
  */
-public class Piece {
+public abstract class Piece {
     
     protected boolean color;
     protected Chess chess;
@@ -43,9 +43,7 @@ public class Piece {
         this.position.setPiece(this);
     }
     
-    public void move() {
-        
-    }
+    public abstract void move();
     
     public static ArrayList<Piece> generatePieces() {
         ArrayList<Piece> pieces = new ArrayList<>();

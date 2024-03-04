@@ -13,5 +13,10 @@ public class Bishop extends Piece {
     public Bishop(boolean color) {
         super(color);
     }
+
+    @Override
+    public void move() {
+        System.out.println("The " + (this.color ? "White" : "Black") + " Bishop moves");
+    }
     
 }
